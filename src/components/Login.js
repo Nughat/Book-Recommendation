@@ -1,28 +1,3 @@
-// import React, { Component } from "react";
-
-// // const url = '/rest/login'
-
-// class Login extends Component {
-//     constructor() {
-//         super();
-//         this.state = {
-           
-//         }
-//     }
-    
-
-//     render() {
-     
-//      return (  
-//         <div>
-//          Login
-//         </div>
-//     );
-//     }
-// }
-
-// export default Login;
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -111,3 +86,28 @@ class Login extends Component {
 }
 
 export default Login;
+
+// import React, { Component } from "react";
+
+// // const url = '/rest/login'
+
+// class Login extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+           
+//         }
+//     }
+    
+
+//     render() {
+     
+//      return (  
+//         <div>
+//          Login
+//         </div>
+//     );
+//     }
+// }
+
+// export default Login;

@@ -13,7 +13,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <Link className="link-item" to="/">
+        <Link className="link-item" to="/home">
           <h1 className="navbar-logo">
             <i className="fas fa-newspaper"></i> BookRecs
           </h1>

@@ -1,18 +1,3 @@
-// import './App.css';
-// import { MainContainer } from './mainContainer';
-// import Navbar from './components/navbar/navbar';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Navbar/>
-//       <MainContainer/>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { Component } from "react";
 import Navbar from "./components/navbar/navbar";
 import Login from "./components/Login";
@@ -21,6 +6,10 @@ import Notfound from "./Notfound";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Homepage from "./components/homepage/homepage";
+import { SearchPage } from "./components/searchPage/searchPage";
+import GenreRecs from "./components/genre/genre";
+import QuizRecs from "./components/quiz/quiz";
+import SurpriseMeRecs from "./components/surpriseMe/surpriseMe";
 
 class App extends Component {
   constructor() {
@@ -59,6 +48,10 @@ class App extends Component {
               <Route path="/home" component={Homepage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <Route path="/searchdir" component={SearchPage} />
+              <Route path="/recGenre" component={GenreRecs} />
+              <Route path="/recQuiz" component={QuizRecs} />
+              <Route path="/recSurpriseMe" component={SurpriseMeRecs} />
               <Route component={Notfound} />
             </div>
           </div>
@@ -69,3 +62,18 @@ class App extends Component {
 }
 
 export default App;
+
+// import './App.css';
+// import { MainContainer } from './mainContainer';
+// import Navbar from './components/navbar/navbar';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Navbar/>
+//       <MainContainer/>
+//     </div>
+//   );
+// }
+
+// export default App;

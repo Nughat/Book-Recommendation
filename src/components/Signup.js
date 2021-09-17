@@ -1,28 +1,3 @@
-// import React, { Component } from "react";
-
-// // const url = '/rest/login'
-
-// class Signup extends Component {
-//     constructor() {
-//         super();
-//         this.state = {
-           
-//         }
-//     }
-    
-
-//     render() {
-     
-//      return (  
-//         <div>
-//          Signup
-//         </div>
-//     );
-//     }
-// }
-
-// export default Signup;
-
 import React, { Component } from "react";
 
 // const url = '/rest/signup'
@@ -118,3 +93,28 @@ class Signup extends Component {
 }
 
 export default Signup;
+
+// import React, { Component } from "react";
+
+// // const url = '/rest/login'
+
+// class Signup extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+           
+//         }
+//     }
+    
+
+//     render() {
+     
+//      return (  
+//         <div>
+//          Signup
+//         </div>
+//     );
+//     }
+// }
+
+// export default Signup;

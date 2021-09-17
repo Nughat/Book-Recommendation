@@ -31,6 +31,7 @@ const SearchPage = () => {
     return (
         <div>
             <div style={{padding:20, fontSize:40}}>Search our directory!</div>
+            {/* To Do: add filters and sortablilty */}
             <div className="ag-theme-alpine" style={{paddingLeft: 90, height: 600, width: 1250}}>
                 <AgGridReact
                     rowData={rowData}>

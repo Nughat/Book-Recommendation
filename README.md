@@ -8,7 +8,10 @@
 5. This should open up http://localhost/3000/ in your browser 
 
 Then you should be able to see any edits you make to the code files reflected on the app running on http://localhost:3000/ 
+<<<<<<< HEAD
 
 _______________________________________________________________________________________________________
 
 Extra Packages: (npm install) ag-grid-react, ag-grid-community, react-bootstrap, react-router-dom, @material-ui/core
+=======
+>>>>>>> 83f5bb8c8685fb6d924d6dc58b204f0260453c99

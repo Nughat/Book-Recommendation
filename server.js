@@ -12,24 +12,27 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const passport = require('passport');
-const localstrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const app = express();
+const flash = require('express-flash');
 
 
 //Middleware 
 app.use(express.json());
+
 app.use(session({
     secret: "verygoodsecret",
     resave: false,
     saveUninitialized: true
 }));
 app.use(express.urlencoded({ extended: false }));
+app.use(require('cookie-parser')()); // i can do this like const cookieParser = require('cookie-parser'); Then, app.use(cookie-parser())
 app.use(cors());
+app.use(flash());
 
 //passport.js
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 
 //db = database
@@ -53,9 +56,13 @@ connection.connect((err) => {
 
 
 app.get('/', (req, res) => {
-    res.send("I think this is working");
+    res.send("I think login is working");
 })
 
+
+app.get('/isloginpageworking', (req, res)=> {
+    res.send("yes it is working");
+})
 
 /*
     This end-point will return books based on the genre that user selected. At this point, user can only select One genre.
@@ -244,9 +251,60 @@ app.post('/register', async(req, res) => {
 
 /*
 For login, we will use passpost..... here is the link---https://www.npmjs.com/package/passport
-Here is another link that I used and found very helpful---https://www.youtube.com/watch?v=W5Tb1MIeg-I&list=PLw_UK6aNYDb77hVcuz7SZd-LdyFKC1tZr&index=9&ab_channel=TylerPotts
+Here is another link that I used and found it very helpful---https://www.youtube.com/watch?v=W5Tb1MIeg-I&list=PLw_UK6aNYDb77hVcuz7SZd-LdyFKC1tZr&index=9&ab_channel=TylerPotts
 
 */
+
+passport.use(new LocalStrategy(function(username,password,done){
+   connection.query('select * from user_table where username = ?', [username],function(err,user){
+    if(err)
+    {
+        console.log("we having database problem");
+        //return done(err);           
+    }
+    else if(user.length == 0)
+    {
+        console.log("there are no account with this username");
+        //return done(null,false,{message: 'Incorrect user name'});           
+    }
+
+    else if (user.length > 1)
+    {
+        console.log("you shouldn't have two user with the same usernmae");
+    }
+
+    // That means we have a user but is the correct password typed in.
+
+    else
+    {
+   bcrypt.compare(password, user[0].password, function(err, res) {
+        if (err){
+            console.log("we having database problem inside the bcrypt");
+            //return done(err);
+        }
+
+        if (res == false){
+            console.log("Incorrect password");
+            //return done(null, false, {message: 'Incorrect password'});
+        }
+
+        else
+        {
+            console.log("we found our user");
+            
+            return done(null, user);
+        }
+      });
+    }
+
+   });  
+}
+));
+
+
+/*
+find the abosulte correct way to implement serializer and deserializer
+
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -258,25 +316,18 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new localstrategy(function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false, {message: 'Incorrect username'}); }
+*/
 
-      bcrypt.compare(password, user.password, function(err, res) {
-          if (err){
-              return done(err);
-          }
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-          if (res == false){
-              return done(null, false, {message: 'Incorrect password'});
-          }
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
-          return done(null, user);
-      });
-    });
-  }
-));
+
+
 
 // we will use this function later. Not right now
 function isloggedin(req, res, next){
@@ -289,15 +340,14 @@ function isloggedout(req, res, next){
     res.redirect('/')
 }
 
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login?error=true'
-}));
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+    res.redirect('/isloginpageworking');
+ });
+
 
 app.get('/logout', (req, res) => {
-
     req.logout();
-    req.redirect('/');
+    res.redirect('/');
 });
 
 

@@ -303,7 +303,7 @@ passport.use(new LocalStrategy(function(username,password,done){
 
 
 /*
-find the abosulte correct way to implement serializer and deserializer
+find the abosulte correct way to implement serializer and deserializere
 
 
 passport.serializeUser(function(user, done) {

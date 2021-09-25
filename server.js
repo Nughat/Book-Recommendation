@@ -130,7 +130,7 @@ const sqlquery = `SELECT *
 
 
 //This End-point will return a random book name with 75% or higher rating to the user.
-app.get('/home/surpriseme', (req, res) => {
+app.get('/surpriseme', (req, res) => {
     connection.query('SELECT * FROM book_information WHERE rating >= 75 ORDER BY rand() LIMIT 1', function (err, result) {
 
         if (err) {

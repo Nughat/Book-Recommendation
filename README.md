@@ -12,10 +12,6 @@ Then you should be able to see any edits you make to the code files reflected on
 
 _______________________________________________________________________________________________________
 
-Extra Packages: (npm install) ag-grid-react, ag-grid-community, react-bootstrap, react-router-dom, @material-ui/core
+####Extra Packages: (npm install) ag-grid-react, ag-grid-community, react-bootstrap, react-router-dom, @material-ui/core
 =======
-To download all these packages, just type 
-npm install 
-
-in terminal
->>>>>>> 83f5bb8c8685fb6d924d6dc58b204f0260453c99
+####To download all these packages, just type npm install in terminal

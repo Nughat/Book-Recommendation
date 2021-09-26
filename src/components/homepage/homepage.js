@@ -21,29 +21,31 @@ class Homepage extends Component {
         <div className="Main">
 
     <Carousel autoPlay interval="5000" transitionTime="4000" infinityloop className="slide">
-       
+        
+        
         <div>
-           <img src="./img/lib.png" alt="design purpose" width="200px" height="500px" />
+           <img src="./img/lib.png" alt="lib" width="200px" height="500px" />
         </div>
         
         <div>
-           <img src="./img/books7.png" alt="design purpose" width="200px" height="500px" />      
-        </div>
-       
-        <div>
-            <img src="./img/books5.jpeg" alt="design purpose" width="200px" height="500px"/>
+           <img src="./img/books7.png" alt="lib" width="200px" height="500px" />      
         </div>
 
         <div>
-            <img src="./img/books8.jpeg" alt="design purpose" width="200px" height="500px"/>
+            <img src="./img/books5.jpeg" alt="lib" width="200px" height="500px"/>
         </div>
 
         <div>
-            <img src="./img/books10.png"  alt="design purpose"width="200px" height="500px"/>
+            <img src="./img/books8.jpeg" alt="lib" width="200px" height="500px"/>
+        </div>
+
+
+        <div>
+            <img src="./img/books10.png" alt="lib" width="200px" height="500px"/>
         </div>
 
         <div>
-            <img src="./img/books11.png" alt="design purpose" width="200px" height="500px"/>
+            <img src="./img/books11.png" alt="lib" width="200px" height="500px"/>
         </div>
 
         </Carousel>
@@ -51,7 +53,7 @@ class Homepage extends Component {
             
         <div className="Home">
         <img className="Book" alt="book" src="./img/welcome3.png"/>
-        <p className="sec-title">Welcome to Bookmarked!</p>
+        <p className="sec-title">Welcome to BookMarked!</p>
         <p className="des">A book recommendation website designed just for you.
         Hey, welcome to Bookmarked, a home for book lovers all across the globe. 
         If you’re itching for something to read but can’t figure out what, 
@@ -75,10 +77,10 @@ class Homepage extends Component {
         </div>
 
         <div className="Quiz">
-        <img className="Q" alt="survey logo" src="./img/survey.png"/>
+        <img className="Q" alt="survey" src="./img/survey.png"/>
         <p className="sec-title">Quiz</p>
         <p className="des">
-        You are the most important, so why shouldn’t things be about you? 
+        You’re the most important, so why shouldn’t things be about you? 
         Complete our short quiz so we can narrow things down to your tastes, just the way you like it. 
         Don’t worry about being overwhelmed by too many options any longer; 
         we’ll find you that perfect fit.
@@ -125,17 +127,17 @@ class Homepage extends Component {
         <br></br>
         <br></br>
         <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         
-        <div>
-            <div style = {{left: 0}}>Bookmarked &#169; | 2021  </div>
-
-            <div className="Footer">
-                <img className="fb footerimg" alt="fb logo" src="./img/fb.png"/>
-                <img className="tw footerimg" alt="twitter logo" src="./img/twitter.png"/>
-                <img className="insta footerimg" alt="instagram logo" src="./img/Insta.png"/>
-            </div>      
-
-        </div>
+        <div className="Footer">
+        <img className="fb footerimg" alt="fb" src="./img/fb.png"/>
+        <img className="tw footerimg" alt="twitter" src="./img/twitter.png"/>
+        <img className="insta footerimg" alt="instagram" src="./img/Insta.png"/>
+        </div>      
        
        </div>
         

@@ -1,4 +1,3 @@
-
 .carousel .slider-wrapper{
     width: 50%;
 }
@@ -129,19 +128,19 @@
     background-color:#E6E6E6;
     display:flex;
     justify-content: flex-end;
-    padding-top: 80px;
+    padding-top: 35px;
 }
 
 .fb{
-    width: 50px;
+    width: 35px;
 }
 
 .tw{
-    width: 60px;
+    width: 35px;
 }
 
 .insta{
-    width: 65px;
+    width: 35px;
 }
 
 .footerimg{

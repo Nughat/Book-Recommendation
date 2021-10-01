@@ -52,7 +52,7 @@ class App extends Component {
               <Route path="/recGenre" component={GenreRecs} />
               <Route path="/recQuiz" component={QuizRecs} />
               <Route path="/recSurpriseMe" component={SurpriseMeRecs} />
-              <Route component={Notfound} />
+              {/* <Route component={Notfound} /> */}
             </div>
           </div>
         </Switch>

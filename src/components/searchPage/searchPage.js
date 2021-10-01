@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState } from 'react';
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
+// const url = "http://localhost:3000/search";
 const SearchPage = () => {
     //test data
     const rowData = [
@@ -27,16 +29,39 @@ const SearchPage = () => {
         {title: "Ancient Civilization", author: "Gideon Aberforth", genre: "History", votes: 100002, publishingDate: "10/10/20", link:"http://allbooks.com/AncCiv"},
         {title: "Elite Guardians", author: "Loki Odinson", genre: "SciFi", votes: 10005, publishingDate: "9/10/11", link:"http://allbooks.com/Elguard"}
     ];
+    // const [rowData, setRowData] = useState([]);
 
+    // useEffect(() => {
+    //     fetch(url)
+    //     .then(result => result.json())
+    //     .then(rowData => setRowData(rowData))
+    // }, []);
+    const [gridApi, setGridApi] = useState(null);
+    const [gridColumApi, setGridColumnApi] = useState(null);
+    const searchDivStyle={backgroundColor:"#dedede",padding:10}
+    const searchStyle={width:"40%",padding:"10px 20px",borderRadius:0,outline:0,fontSize:"100%"}
+    function onGridReady(params) {
+        setGridApi(params.api);
+        setGridColumnApi(params.columnApi);
+      }
+    const onFilterTextChange=(e)=>{
+      gridApi.setQuickFilter(e.target.value)
+    }
+    
     return (
         <div>
             <div style={{padding:20, fontSize:40}}>Search our directory!</div>
             {/* To Do: add filters and sortablilty */}
+            <div style={searchDivStyle}>
+                <input type="search" style={searchStyle} onChange={onFilterTextChange} placeholder="search here..."/>
+            </div>
             <div className="ag-theme-alpine" style={{paddingLeft: 90, height: 600, width: 1250}}>
                 <AgGridReact
-                    rowData={rowData}>
-                    <AgGridColumn field="title" filter="agTextColumnFilter"></AgGridColumn>
-                    <AgGridColumn field="author" filter="agTextColumnFilter"></AgGridColumn>
+                    rowData={rowData}
+                    onGridReady={onGridReady}
+                    >
+                    <AgGridColumn field="title" filter={true}></AgGridColumn>
+                    <AgGridColumn field="author" filter={true}></AgGridColumn>
                     <AgGridColumn field="genre" filter="agTextColumnFilter"></AgGridColumn>
                     <AgGridColumn field="votes" filter="agNumberColumnFilter"></AgGridColumn>
                     <AgGridColumn field="publishingDate" filter="agTextColumnFilter"></AgGridColumn>
